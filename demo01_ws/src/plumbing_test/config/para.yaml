@@ -1,0 +1,7 @@
+linear_x_speed : 0.5
+linear_y_speed : 0.0
+linear_z_speed : 0.0
+
+angular_x_speed : 0.0
+angular_y_speed : 0.0
+angular_z_speed : 0.5

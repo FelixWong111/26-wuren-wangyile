@@ -1,0 +1,10 @@
+#!/usr/bin/env python3
+
+#导包
+import rospy
+
+if __name__ == "_main_":
+    #初始化ros节点
+    rospy.init_node("pack_p")
+    #输出日志
+    rospy.loginfo("斯蒂芬广泛")

@@ -1,0 +1,30 @@
+#!/usr/bin/env python3
+
+import rospy
+
+#导入消息类型
+from geometry_msgs import Twist
+
+
+if __name__ == "__main__":
+    #初始化ROS节点；
+    rospy.init_node("Alpha")
+    #创建发布者对象
+    pub = rospy.Publisher("/turtle1/cmd_vel",Twist,queue_size=10)
+
+    #设置发布频率
+    rate = rospy.Rate(10)
+
+    #创建自定义速度消息实例（对象特征）
+    twist = Twist()
+    twist.linear.x = 0.5
+    twist.linear.y = 0.0    
+    twist.linear.z = 0.0
+
+    twist.angular.x = 0.0
+    twist.angular.y = 0.0
+    twist.angular.z = 0.5
+    
+    while not rospy.is_shutdown():
+        pub.publish(twist)
+        rate.sleep

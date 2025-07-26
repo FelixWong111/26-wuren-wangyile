@@ -1,0 +1,23 @@
+<launch>
+    <!-- 1. 启动 turtlesim 节点（也可单独启动，这里整合方便） -->
+    <node pkg="turtlesim" type="turtlesim_node" name="turtlesim" output="screen"/>
+
+    <!-- 2. 加载 YAML 参数文件 -->
+    <rosparam file="$(find plumbing_test)/config/para.yaml" command="load" />
+
+    <!-- 3. 启动 Python 发布方节点 -->
+    <node 
+        pkg="plumbing_test" 
+        type="test01_pub_twist_p.py" 
+        name="motion_publisher" 
+        output="screen" 
+    />
+
+    <!-- 4. 启动 C++ 订阅方/控制器节点 -->
+    <node 
+        pkg="plumbing_test" 
+        type="turtle_controller" 
+        name="turtle_controller" 
+        output="screen" 
+    />
+</launch>
